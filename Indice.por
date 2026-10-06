@@ -25,6 +25,19 @@ programa {
     cadeia nome_pokemon_inimigo = "Gengar"
     inteiro hp_pokemon_inimigo = 120
     inteiro max_hp_pokemon_inimigo = 120
+    /*
+    * Operadores aritmeticos:
+    * Soma (+)
+    * Subtração (-)
+    * Multiplicação (*)
+    * Divisão (/)
+    * Modulo de porcentagem (%) = (valor/100) 
+    */
+    inteiro dano = util.sorteia(22,35)
+    escreva("=====FICHA DA BATALHA=====\n")
+    hp_pokemon_inimigo = hp_pokemon_inimigo - dano
+    escreva(nome_meu_pokemon," | HP : ", hp_meu_pokemon, " | ", max_hp_meu_pokemon, "\n")
+    escreva(nome_pokemon_inimigo,"  | HP : ", hp_pokemon_inimigo, "  | ", max_hp_pokemon_inimigo, " (Sofreu ", dano," de dano)\n")
     // Desenho do ceu da tela
     graficos.definir_cor(graficos.criar_cor(150,216,250))
     graficos.desenhar_retangulo(0,0,LARGURA,260,falso,verdadeiro)
@@ -43,14 +56,21 @@ programa {
     //Desenho inicial do nosso pokemon Pikachu
     graficos.definir_cor(graficos.criar_cor(255,215, 0))
     graficos.desenhar_retangulo(180,280,110,100,falso,verdadeiro)
+    //Textos de informações do pokemon inimigo
+    graficos.definir_cor(graficos.COR_PRETO)
+    graficos.desenhar_texto(60,55,nome_pokemon_inimigo+ "  | HP : "+ hp_pokemon_inimigo + "  | " + max_hp_pokemon_inimigo)
+    //Textos de informações do pokemon aliado
+    graficos.definir_cor(graficos.COR_PRETO)
+    graficos.desenhar_texto(480,372, nome_meu_pokemon+" | HP : "+ hp_meu_pokemon+ " | "+ max_hp_meu_pokemon)
+    //Está função mostra a tela do jogo
     graficos.renderizar()
     logico infinitamente = verdadeiro
 
 		enquanto (infinitamente)
 		{
-			util.aguarde(1000)
+			util.aguarde(100)
+    escreva("\nJanela gráfica! Utilizado a Biblioteca de gráficos do Portugol")
     }
-    escreva("Janela gráfica! Utilizado a Biblioteca de gráficos do Portugol")
     //
   }
 }
